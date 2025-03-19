@@ -1,12 +1,5 @@
 def worst_fit(memory, req):
-    """
-    Implementa el algoritmo Worst Fit para la asignación de memoria.
-    
-    memory: lista de tuplas de la forma (base, limite), cada tupla representa un bloque de memoria.
-    req: tamaño de la memoria solicitada.
-    
-    Devuelve la nueva memoria, la nueva base, el nuevo límite y el nuevo inicio.
-    """
+
     
     # Encuentra el bloque más grande que pueda acomodar la solicitud
     max_size = -1
@@ -19,9 +12,9 @@ def worst_fit(memory, req):
 
     # Si no se encontró un bloque adecuado
     if index == -1:
-        return None  # O algún mensaje de error o valor adecuado
+        return None  
 
-    # Si se encontró un bloque adecuado, realizamos la asignación
+    # Si se encontró un bloque adecuado, realiza la asignación
     base, limit = memory[index]
     
     # Calculamos el nuevo inicio y fin del bloque
@@ -29,7 +22,7 @@ def worst_fit(memory, req):
     new_limit = base + req
     new_start = base + req
 
-    # Actualizamos la memoria
+    # Actualiza la memoria
     if new_limit < limit:
         memory[index] = (new_limit, limit)
     else:
@@ -37,7 +30,7 @@ def worst_fit(memory, req):
     
     return memory, new_base, new_limit, new_start
 
-# Ejemplo de uso:
+
 memory = [(0, 100), (200, 300), (400, 600)]
 req = 50
 new_memory, new_base, new_limit, new_start = worst_fit(memory, req)
